@@ -27,7 +27,7 @@ class AdminSiteTests(TestCase):
 
     def test_user_change_page(self):
         """유저 에딧 페이지 작동 테스트"""
-        url = reverse('admin:core_user_change', args[self.user.id])
+        url = reverse('admin:core_user_change', args=[self.user.id])
         res = self.client.get(url)
 
         self.assertEqual(res.status_code, 200)
