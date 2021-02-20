@@ -25,7 +25,7 @@ with open(secret_file) as f:
     secrets = json.loads(f.read())
 
 def get_secret(setting, secrets=secrets):
-    """비밀 변수를 가져오거나 명시적 예외를 반환합니다."""
+    """비밀 변수를 가져오거나 명시적 예외를 반환"""
     try:
         return secrets[setting]
     except KeyError:
@@ -53,7 +53,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'drf_yasg',
-    'django_extensions'
+    'django_extensions',
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +140,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+AUTH_USER_MODEL = 'core.User'
