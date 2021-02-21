@@ -3,6 +3,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext as _
 
 from core import models
+from products.models import Product
 
 
 class UserAdmin(BaseUserAdmin):
@@ -10,7 +11,10 @@ class UserAdmin(BaseUserAdmin):
     list_display = ['email', 'name']
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        (_('Personal Info'), {'fields': ('name',)}),
+        (_('Personal Info'), {'fields': (
+            'name', 'phone_number', 'address', 'gender'
+        )}),
+        
         (
             _('Permissions'),
             {
@@ -22,8 +26,11 @@ class UserAdmin(BaseUserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields' : ('email', 'password1', 'password2')
+            'fields' : (
+                'email', 'password1', 'password2', 'name', 'phone_number', 'address', 'gender'
+            )
         }),
     )
     
 admin.site.register(models.User, UserAdmin)
+admin.site.register(Product)
