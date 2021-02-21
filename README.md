@@ -10,6 +10,14 @@
 
 2. Project setting (용도별 세팅 분리 /  시크릿키, 데이터베이스 정보 json으로 관리)
 
+3. User 앱 작성 (Test → Model → Serializer → View → Url)
+
+4. Product 앱 작성 (Test → Model → Serializer → View → Url)
+
+5. Order 앱 작성 (Test → Model → Serializer → View → Url)
+
+6. 회고록 (Private)
+
    
 
 ## 🪧 모델링
