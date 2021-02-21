@@ -44,14 +44,15 @@ class PublicUserApiTests(TestCase):
             'name': 'Test Name',
             'phone_number': '010-0000-0000'
         }
-        create_user(**payload)
+        create_user(**payload
+                   )
         res = self.client.post(CREATE_USER_URL, payload)
 
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_password_too_short(self):
         """비밀번호 여섯자 이상 테스트"""
-        paylaod = {
+        payload = {
             'email': 'test@test.com',
             'password': 'short',
             'name': 'Test Name',
@@ -76,14 +77,14 @@ class PrivateUserApiTests(TestCase):
     """인증이 필요한 유저 테스트"""
     
     def setUp(self):
-        self.user = create_url(
+        self.user = create_user(
             email = 'test@test.com',
             password = 'testpass',
             name = 'Test Name',
             phone_number = '010-0000-0000'
         )
-        self.client = APIClient
-        self.client.force_authentication(user=self.user)
+        self.client = APIClient()
+        self.client.force_authenticate(user=self.user)
 
     def test_retrieve_profile_success(self):
         """로그인한 유저 조회 테스트"""
