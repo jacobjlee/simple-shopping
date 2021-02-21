@@ -1,7 +1,6 @@
 from django_filters.rest_framework import DjangoFilterBackend
 
-from rest_framework import viewsets, mixins, status, filters
-from rest_framework.response import Response
+from rest_framework import viewsets, mixins, filters
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAdminUser, AllowAny
 
@@ -10,7 +9,7 @@ from .serializers import ProductSerializer
 
 
 class ProductViewSet(viewsets.ModelViewSet):
-    """상품 뷰"""
+    """상품 뷰셋"""
     serializer_class = ProductSerializer
     queryset = Product.objects.all().order_by('-id')
     authentication_classes = [TokenAuthentication]

@@ -4,6 +4,7 @@ from django.utils.translation import gettext as _
 
 from core import models
 from products.models import Product
+from orders.models import Order, OrderStatus, OrderItem
 
 
 class UserAdmin(BaseUserAdmin):
@@ -34,3 +35,6 @@ class UserAdmin(BaseUserAdmin):
     
 admin.site.register(models.User, UserAdmin)
 admin.site.register(Product)
+admin.site.register(Order)
+admin.site.register(OrderStatus)
+admin.site.register(OrderItem)
