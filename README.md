@@ -73,6 +73,6 @@
 **Order**
 
 - 유저 본인의 주문 확인과 관리자의 모든 접근 허용을 위한 IsUserOrAdmin(custom permission) 구현
-- Get(list) 사용 피하기 위해 ModelViewSet이 아닌 mixins & GenericViewSet 활용
+- Get(list) 접근 피하기 위해 ModelViewSet이 아닌 mixins & GenericViewSet 활용
 - ForeignKey id가 아닌 적절한 속성을 가져오기 위한 source attribute 사용
 - 주문 API에서 상품 확인할 수 있도록 reverse relationship 구현

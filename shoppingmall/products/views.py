@@ -19,7 +19,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     filterset_fields = ['manufacturer']
 
     def get_permissions(self):
-        """유저 상품 조회를 위한 오버라이딩 함수"""
+        """상품 조회를 위한 오버라이딩 함수"""
         if self.request.method == 'GET':
             self.permission_classes = [AllowAny]
         else:

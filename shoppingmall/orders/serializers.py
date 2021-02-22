@@ -8,17 +8,16 @@ from .models import Order, OrderItem
 class OrderItemSerializer(serializers.ModelSerializer):
     """주문 상품 시리얼라이저"""
     product_name = serializers.CharField(source='product.name', read_only=True)
-
+    
     class Meta:
         model = OrderItem
-        fields = ['id', 'order', 'product_name', 'quantity']
+        fields = ['id', 'product_name', 'quantity']
     
-
 
 class OrderSerializer(serializers.ModelSerializer):
     """주문 시리얼라이저"""
     name = serializers.CharField(source='user.name', read_only=True)
-    status = serializers.CharField(source='order_status.name', read_only=True)
+    status = serializers.CharField(source='status.name', read_only=True)
     orderitem_set = OrderItemSerializer(many=True, read_only=True)
 
     class Meta:
